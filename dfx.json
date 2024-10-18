@@ -1,6 +1,7 @@
 {
   "canisters": {
     "Autolegal-Ags-backend": {
+      "candid": "src/Autolegal-Ags-backend/my_service.did" ,
       "main": "src/Autolegal-Ags-backend/main.mo",
       "type": "motoko"
     },
