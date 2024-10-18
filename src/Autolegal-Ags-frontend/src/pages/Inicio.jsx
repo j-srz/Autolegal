@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Box, Typography, Button, Grid } from '@mui/material';
+import { Navigate } from 'react-router-dom';
 
 const Inicio = () => {
   return (
@@ -11,9 +12,12 @@ const Inicio = () => {
         <Button variant="outlined" size="large">
           Ya tengo una licencia
         </Button>
+        <Navigate to="/auth/login">
         <Button variant="contained" size="large">
           Tramitar licencia
         </Button>
+        
+        </Navigate>
       </Box>
       <Grid container spacing={4} sx={{ mt: 10 }}>
         <Grid item xs={12} sm={6}>

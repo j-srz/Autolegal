@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Typography, Box, Grid, Button, Card, CardContent, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import { useUser } from './../context/UserContext';
+import { useNavigate } from 'react-router-dom'; 
 
 const Dashboard = () => {
   const [open, setOpen] = useState(false);
+  const { logout } = useUser(); // Accede a la función de logout desde el contexto
+  const navigate = useNavigate(); 
 
   // Funciones para abrir y cerrar el modal
   const handleOpen = () => {
@@ -13,6 +17,11 @@ const Dashboard = () => {
     setOpen(false);
   };
 
+  const handleLogout = () => {
+    logout(); // Llama a la función de logout
+    navigate('/'); // Redirige a la página de inicio después de cerrar sesión
+  };
+
   return (
     <Container maxWidth="lg" sx={{ mt: 5 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3 }}>
@@ -21,6 +30,10 @@ const Dashboard = () => {
           {/* Icono de perfil */}
           <Button variant="outlined" sx={{ borderRadius: '50%', minWidth: '40px' }}>
             M
+          </Button>
+          {/* Botón de Logout */}
+          <Button variant="outlined" sx={{ marginLeft: 1 }} onClick={handleLogout}>
+            Logout
           </Button>
         </Box>
       </Box>
